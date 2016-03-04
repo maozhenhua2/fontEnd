@@ -1,0 +1,88 @@
+1.下载并配置ruby
+http://rubyinstaller.org/downloads/
+选择Other Useful Downloads中的适合你的版本
+下载，解压到任意目录
+用户变量path加入“解压的目录/bin”（双引号不要）
+在 Windows 的环境变量中添加 RUBYOPT 变量，值设为 -KU 。然后在你的 SCSS 文件第一行加上 @charset “UTF-8″;，再编译就能完美支持中文了。
+2.修改RubyGems 镜像
+$ gem sources --add https://ruby.taobao.org/ --remove https://rubygems.org/
+$ gem sources -l
+*** CURRENT SOURCES ***
+
+https://ruby.taobao.org
+# 请确保只有 ruby.taobao.org
+3.安装compass
+gem update --system
+gem install compass
+
+gem install compass,这时可能会报这样的错误
+The 'ffi' native gem requires installed build tools.
+Please update your PATH to include build tools or download the DevKit
+from 'http://rubyinstaller.org/downloads' and follow the instructions
+at 'http://github.com/oneclick/rubyinstaller/wiki/Development-Kit'
+这就下载安装devkit了，到ruby官网下载devkit，解压到C:/DevKit下，
+C:/DevKit>ruby dk.rb init
+[INFO] found RubyInstaller v1.9.3 at C:/Ruby193
+Initialization complete! Please review and modify the auto-ge
+'config.yml' file to ensure it contains the root directories
+of the installed Rubies you want enhanced by the DevKit.
+
+然后修改config.yml中ruby的目录为你安装的目录
+ 
+C:/DevKit>ruby dk.rb install
+[INFO] Updating convenience notice gem override for 'C:/Ruby1
+[INFO] Installing 'C:/Ruby193/lib/ruby/site_ruby/devkit.rb'
+ 
+C:/DevKit>gem install rdiscount --platform=ruby
+Fetching: rdiscount-1.6.8.gem (100%)
+Temporarily enhancing PATH to include DevKit...
+Building native extensions.  This could take a while...
+Successfully installed rdiscount-1.6.8
+1 gem installed
+Installing ri documentation for rdiscount-1.6.8...
+Installing RDoc documentation for rdiscount-1.6.8...
+OK！再次gem install compass即可。
+
+
+
+
+为 Compass 添加 normalize 扩展
+首先安装扩展：
+
+$ gem install compass-normalize
+然后新建项目适合顺带引入：
+
+$ compass create <my_project> -r compass-normalize --using compass-normalize
+对于已经存在的项目，可以在 config.rb 这个配置文件中加入：
+
+require 'compass-normalize'
+
+
+4.用chrome调试sass
+F12->setting->general
+选中以下
+sources:
+Enable JavaScript source maps
+Enable CSS source maps
+--Auto-reload generated CSS
+
+Default indentation:
+Detect indentation
+Autocompletion
+Bracket matching
+
+
+5.sass命令
+compass编译单个文件
+cd 到项目根目录 
+compass compile sass/icon.scss
+
+实时监视sass文件改动
+cd到项目根目录
+sass --watch --sourcemap sass文件夹相对路径:css文件夹相对路径
+
+编译全部sass并且带sourcemap
+sass --force --update --sourcemap sass文件夹相对路径:css文件夹相对路径
+
+重新编译全部sass并且带sourcemap
+sass --force --update --sourcemap --force sass文件夹相对路径:css文件夹相对路径

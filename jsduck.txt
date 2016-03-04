@@ -1,0 +1,64 @@
+jsduck说明
+https://github.com/senchalabs/jsduck
+1.安装ruby环境
+2.安装development
+下载地址 http://rubyinstaller.org/downloads/，
+安装完成后，确保ruby执行路径已经添加到您的环境变量中。
+3.使用gem命令安装 JsDuck
+gem install jsduck
+
+jsduck jsfilepath –output outputdirectory
+其中jsfilepath 代表的是js文件路径，可以是js存放的文件夹的路径，
+这样的话，会把整个文件夹的js文件文档生成出来，也可以单独制定某个文件，
+outputdirectory 是文档的输出路径
+ 
+
+假设现在 有文件 D:\jsduck\user.js 如下
+user.js
+/**** 
+@class 定义user类 
+****/ 
+function user(){ 
+    this.age = 10; 
+}
+
+注意注释开始为
+/**
+是2个星号
+
+Jsduck命令有一些基本的配置（在命令行输入jsduck –-help可以看到各个参数的意义），
+但是很多时候我们在输入命令时，输入很多的参数和配置信息可能会让人
+让人觉得很繁琐，jsduck也提供了从外部文件中加载json格式的配置文件，
+只要在输入命令使用命令参数--config指定配置文件就ok了,例如：
+
+config.json
+{
+    //指定js文件目录或路径，可以是多个，使用数组的方式，如：['extjs/src/app.js','extjs/src/common.js']
+    "--": "extjs/src",
+    //生成文档的title 
+    "--title": "My personal docs",
+    //生成文档时关闭警告信息
+    "--warnings": [
+        "-no_doc:extjs/src",
+        "-no_doc_member:extjs/src",
+        "-link:extjs/src",
+        "-type_name:extjs/src"
+    ],
+    //忽略的html标签，通常忽略的是不合法的html标签
+    "--ignore-html": [
+        "locale",
+        "debug"
+    ],
+    //配置文件路径
+    "--images": "extjs/docs/images",
+    //对于文档标记：{@link Boolean}，由于 Ext JS内建了 Boolean 类型，所以JSDuck创建文档时默认采用了Boolean,可以使用此配置来启用或者禁用
+    "--builtin-classes": true
+}
+
+ 
+已经有大神编写了grunt-duck来做这个事，
+有兴趣的同学可以参照 https://github.com/dpashkevich/grunt-jsduck 来配置
+
+参考资料:
+常见js文档工具对比：http://segmentfault.com/a/1190000002579067
+jsdoc配置及使用：http://www.cnblogs.com/hxling/archive/2012/11/27/2791067.html

@@ -1,0 +1,11 @@
+; cli configs
+registry = "https://registry.npmjs.org/"
+user-agent = "npm/1.4.9 node/v0.10.28 win32 x64"
+
+; userconfig C:\Users\maxmao2\.npmrc
+registry = "https://registry.npmjs.org/"
+
+; node bin location = D:\soft\font_end\nodejs\\node.exe
+; cwd = C:\Users\maxmao2
+; HOME = C:\Users\maxmao2
+; 'npm config ls -l' to show all defaults.

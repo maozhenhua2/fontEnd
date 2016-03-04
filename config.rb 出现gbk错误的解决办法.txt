@@ -1,0 +1,2 @@
+在文件最开始加
+Encoding.default_external = Encoding.find('utf-8')

@@ -1,0 +1,20 @@
+﻿安装 Package Control 的方法：
+
+使用Ctrl+`快捷键或者通过View->Show Console菜单打开命令行，粘贴如下代码：
+
+import urllib.request,os; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); open(os.path.join(ipp, pf), 'wb').write(urllib.request.urlopen( 'http://sublime.wbond.net/' + pf.replace(' ','%20')).read())
+
+
+
+打开 Sublime Text 2，按下 Control + ` 调出 Console
+将以下代码粘贴进命令行中并回车：
+import urllib2,os; pf='Package Control.sublime-package'; ipp=sublime.installed_packages_path(); os.makedirs(ipp) if not os.path.exists(ipp) else None; urllib2.install_opener(urllib2.build_opener(urllib2.ProxyHandler())); open(os.path.join(ipp,pf),'wb').write(urllib2.urlopen('http://sublime.wbond.net/'+pf.replace(' ','%20')).read()); print 'Please restart Sublime Text to finish installation'
+重启 Sublime Text 2，如果在 Preferences -> Package Settings中见到Package Control这一项，就说明安装成功了。
+
+安装 zen coding
+
+1. 下载zen coding 插件包
+
+1. 打开Sublime, 选择 Prefreences  > Browse Packgaes... 可以弹出插件安装位置；
+2. 把下载的插件包改名为“zen coding”后复制到第2步弹出的位置；
+3. 重启Sublime；

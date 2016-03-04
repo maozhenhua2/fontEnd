@@ -1,0 +1,33 @@
+安装到目录c:\mongodb
+
+// 启动mongod 根据配置文件
+// mongod --config "c:\mongodb\mongod.cfg"
+
+mongod.exe --logpath=c:\mongodb\log\log.txt --dbpath=c:\mongodb\data\db --logappend
+
+// cfg内的路径要和真实路径一致
+
+// 添加mongodb服务
+"C:\mongodb\bin\mongod.exe" --config "C:\mongodb\mongod.cfg" --install
+
+// 作为windows服务开机启动
+sc.exe create MongoDB binPath= "C:\mongodb\bin\mongod.exe --service --config=\"C:\mongodb\mongod.cfg\"" DisplayName= "MongoDB" start= "auto"
+
+// 启动服务
+net start MongoDB
+
+// 停止服务
+net stop MongoDB
+
+// 删除服务
+sc.exe delete MongoDB
+// 或
+"C:\mongodb\bin\mongod.exe" --remove
+
+
+// mongodb网站
+https://docs.mongodb.org/getting-started/shell/tutorial/install-mongodb-on-windows/
+
+// 管理工具
+http://mongobooster.com/downloads
+http://rockmongo.com  推荐

@@ -1,0 +1,102 @@
+grunt-contrib-sass
+https://www.npmjs.org/package/grunt-contrib-sass
+
+grunt-contrib-watch
+https://www.npmjs.org/package/grunt-contrib-watch
+
+grunt-contrib-requirejs
+https://www.npmjs.org/package/grunt-contrib-requirejs
+
+grunt-targethtml
+https://github.com/changer/grunt-targethtml
+
+grunt-contrib-jshint
+https://www.npmjs.org/package/grunt-contrib-jshint
+
+grunt-contrib-clean
+https://www.npmjs.org/package/grunt-contrib-clean
+
+grunt-contrib-uglify
+https://www.npmjs.org/package/grunt-contrib-uglify
+
+grunt-contrib-copy
+https://www.npmjs.org/package/grunt-contrib-copy
+
+grunt-contrib-concat
+https://www.npmjs.org/package/grunt-contrib-concat
+
+grunt-contrib-cssmin
+https://www.npmjs.org/package/grunt-contrib-cssmin
+
+grunt-contrib-imagemin
+https://www.npmjs.org/package/grunt-contrib-imagemin
+
+grunt-contrib-htmlmin
+https://www.npmjs.org/package/grunt-contrib-htmlmin
+
+grunt-contrib-coffee
+https://www.npmjs.org/package/grunt-contrib-coffee
+
+grunt-contrib-compass
+https://www.npmjs.org/package/grunt-contrib-compass
+
+grunt-php
+https://github.com/sindresorhus/grunt-php
+
+css-sprite
+https://github.com/aslansky/css-sprite
+
+grunt-image
+https://github.com/1000ch/grunt-image
+
+# 如果之前有装过grunt，卸载之
+npm uninstall -g grunt
+
+# 安装grunt运行工具
+npm install -g grunt-cli
+
+一个grunt项目需要两个文件：package.json和Gruntfile.js，前者用于nodejs包管理，比如grunt插件安装，后者是grunt配置文件，配置任务或者自定义任务。
+
+以后如果要重用一个grunt项目的配置，只需要有package.json和Gruntfile.js这两个文件，然后npm install即可安装所有依赖的插件。
+
+
+expand：如果设为true，就表示下面文件名的占位符（即*号）都要扩展成具体的文件名。
+
+cwd：需要处理的文件（input）所在的目录。
+
+src：表示需要处理的文件。如果采用数组形式，数组的每一项就是一个文件名，可以使用通配符。
+
+dest：表示处理后的文件名或所在目录。
+
+ext：表示处理后的文件后缀名。
+
+filter：一个返回布尔值的函数，用于过滤文件名。只有返回值为true的文件，才会被grunt处理。
+
+dot：是否匹配以点号（.）开头的系统文件。
+
+makeBase：如果设置为true，就只匹配文件路径的最后一部分。比如，a?b可以匹配/xyz/123/acb，而不匹配/xyz/acb/123。
+
+*：匹配任意数量的字符，不包括/。
+?：匹配单个字符，不包括/。
+**：匹配任意数量的字符，包括/。
+{}：允许使用逗号分隔的列表，表示“or”（或）关系。
+!：用于模式的开头，表示只返回不匹配的情况。
+
+安装compass
+gem install compass
+
+新建项目
+compass create <项目名>
+会生成一个<项目名>子目录
+或
+项目初始化
+compass init
+
+编译
+compass compile
+
+编译为变动的文件
+compass compile --force
+
+自动编译
+compass watch
