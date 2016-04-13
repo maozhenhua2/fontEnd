@@ -1,0 +1,3 @@
+node_modules\ssi\lib\SSI.js
+寻找var DIRECTIVE_MATCHER = /<!--#([a-z]+)([ ]+([a-z]+)="(.+?)")* -->/g;
+修改var DIRECTIVE_MATCHER = /<!--\s?#([a-z]+)([ ]+([a-z]+)="(.+?)")*\s?-->/g;
