@@ -3,16 +3,41 @@ http://rubyinstaller.org/downloads/
 选择Other Useful Downloads中的适合你的版本
 下载，解压到任意目录
 用户变量path加入“解压的目录/bin”（双引号不要）
+
+安装gem更新
+
+https://rubygems.org/pages/download
+选择GEM按钮
+下载最新的.gem文件放到本地路径
+
+运行
+C:\>gem install --local C:\rubygems-update-2.6.3.gem
+C:\>update_rubygems --no-ri --no-rdoc
+
+C:\>gem uninstall rubygems-update -x
+Removing update_rubygems
+Successfully uninstalled rubygems-update-2.2.3
+
 在 Windows 的环境变量中添加 RUBYOPT 变量，值设为 -KU 。然后在你的 SCSS 文件第一行加上 @charset “UTF-8″;，再编译就能完美支持中文了。
 2.修改RubyGems 镜像
-$ gem sources --add https://ruby.taobao.org/ --remove https://rubygems.org/
+$ gem sources --add https://gems.ruby-china.org/ --remove https://rubygems.org/
+
+如果出现
+Error fetching https://gems.ruby-china.org/:
+        SSL_connect returned=1 errno=0 state=SSLv3 read server certificate B: certificate verify failed (https://gems.ru
+by-china.org/specs.4.8.gz)
+则使用
+$ gem sources --add http://gems.ruby-china.org/ --remove https://rubygems.org/
 $ gem sources -l
 *** CURRENT SOURCES ***
 
-https://ruby.taobao.org
-# 请确保只有 ruby.taobao.org
+http://gems.ruby-china.org/
+# 请确保只有 http://gems.ruby-china.org/
+
 3.安装compass
+如果之前下载过最新的.gem文件并更新过就可以跳过这一步
 gem update --system
+安装compass
 gem install compass
 
 gem install compass,这时可能会报这样的错误
@@ -42,6 +67,7 @@ Successfully installed rdiscount-1.6.8
 Installing ri documentation for rdiscount-1.6.8...
 Installing RDoc documentation for rdiscount-1.6.8...
 OK！再次gem install compass即可。
+
 
 
 
