@@ -1,0 +1,4 @@
+npm install -g nrm
+npm install -g grunt-cli
+npm install --global gulp
+npm install -g bower
