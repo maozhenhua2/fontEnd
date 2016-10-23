@@ -1,3 +1,10 @@
 Bower : ENOGIT git is not installed or not in the PATH
 
 添加git到window的环境变量中。设置path路径为C:\Program Files\Git\bin
+
+查看package
+bower info jquery
+
+多个版本共存
+bower install jquery3.0.0=jquery#3.0.0
+bower install jquery1.12.0=jquery#1.12.0
