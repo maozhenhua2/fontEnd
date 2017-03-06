@@ -1,0 +1,17 @@
+{
+  "name": "nodejsapp",
+  "version": "1.0.0",
+  "description": "electron",
+  "main": "app1/main.js",
+  "scripts": {
+    "start": "electron app",
+    "package": "electron-packager app app --platform=win32 --arch=ia32 --version=0.37.6 --out dist/"
+  },
+  "author": "mzh",
+  "license": "ISC",
+  "devDependencies": {
+    "electron": "^0.4.1",
+    "electron-builder": "^3.6.1",
+    "electron-packager": "^7.0.0"
+  }
+}

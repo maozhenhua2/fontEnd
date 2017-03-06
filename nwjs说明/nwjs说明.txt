@@ -1,0 +1,26 @@
+1.下载Windows 32-bit版本 normal
+http://nwjs.io/downloads/
+不要下载64版本，有问题
+
+2.解压到任意目录
+准备项目
+
+3.将项目文件压缩为zip文件
+就是打开压缩包之间是项目文件，例如package.json等，不要打开压缩包看到的是一个文件夹
+
+4.将压缩后的zip文件的后缀名改为mw，例如app.nw
+
+5.将重命名后的.nw文件移动到nw.js的根目录
+
+6.cd到nw.js的根目录
+运行copy /b nw.exe+app.nw app.exe
+删除.nw文件和nw.exe
+
+7.将项目封装成一个可执行文件
+http://enigmaprotector.com/en/downloads.html
+下载Enigma Virtual Box
+
+8.Enigma Virtual Box说明
+将前面nw.js目录里的所有文件除了.exe都拖放到文件选项卡里
+
+9.执行封包
