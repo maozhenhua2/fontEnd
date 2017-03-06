@@ -1,0 +1,17 @@
+https://github.com/Kenshin/gnvm
+
+下载gnvm
+
+保存到任意目录
+
+在环境变量path中添加%NODE_HOME%=刚才保存的目录
+
+安装node
+gnvm install 4.4.5
+
+gnvm use 4.4.5
+
+注册淘宝镜像
+gnvm config registry TAOBAO
+
+gnvm npm laltest

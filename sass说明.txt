@@ -11,7 +11,7 @@ https://rubygems.org/pages/download
 下载最新的.gem文件放到本地路径
 
 运行
-C:\>gem install --local C:\rubygems-update-2.6.3.gem
+C:\>gem install --local C:\rubygems-update-2.6.4.gem
 C:\>update_rubygems --no-ri --no-rdoc
 
 C:\>gem uninstall rubygems-update -x
