@@ -1,0 +1,7 @@
+合并压缩js
+node <r.js路径> -o <build.js路径>
+例如：node lib/r.js -o build.js
+
+合并压缩css
+node <r.js路径> -o <buildCss.js路径>
+例如：node lib/r.js -o buildCss.js
