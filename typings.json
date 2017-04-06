@@ -1,0 +1,9 @@
+{
+  "name": "work_gulp",
+  "dependencies": {
+    "debug": "registry:npm/debug#2.0.0+20160723033700"
+  },
+  "globalDependencies": {
+    "jquery": "registry:dt/jquery#1.10.0+20160929162922"
+  }
+}

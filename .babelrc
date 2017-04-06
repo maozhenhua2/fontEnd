@@ -1,0 +1,13 @@
+{
+  "presets": [
+    "es2015",
+    "es2016",
+    "react",
+    "stage-3"
+  ],
+  "plugins": [
+    "transform-es3-property-literals",
+    "transform-es3-member-expression-literals",
+    "transform-decorators"
+  ]
+}
