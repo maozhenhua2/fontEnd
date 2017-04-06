@@ -1,0 +1,85 @@
+r.js
+基于node.js
+
+下载r.js
+http://requirejs.org/docs/release/2.1.11/r.js
+
+项目列表
+index1.html
+-js
+  -app
+    math.js
+    myLib.js
+  -requirejs
+    require.js
+    r.js
+  main.js
+-css
+  main.css
+  normalize.css
+  page1.css
+
+放到你项目里要合并文件的目录里
+
+合并js
+
+命令行运行
+cd 到项目里的任意目录下
+     r.js路径            项目入口文件 合并好的文件 默认js目录    不合并cdn
+node ./requirejs/r.js -o name=../main out=built.js baseUrl=./app paths.jquery=empty:
+跳过selector            不压缩
+excludeShallow=selector optimze=none
+
+-o、name、out是必选的
+
+合并css
+main.css是合并的主文件，或称配置文件。要合并的文件使用@import引入。如下
+
+main.css
+@import url("nav.css");
+@import url("grid.css");
+@import url("form.css");
+命令行同js，其中name改为cssln，optimze改为optimizeCss
+
+optimizeCss的取值有standard/none/standard.keepLines/standard.keepComments/standard.keepComments.keepLines。
+
+none  不压缩，仅合并
+standard  标准压缩 去换行、空格、注释
+standard.keepLines  除标准压缩外，保留换行
+standard.keepComments  除标准压缩外，保留注释
+standard.keepComments.keepLines  除标准压缩外，保留换行和注释
+
+
+也可以使用配置文件来合并js和css，如build.js
+js和css合并的配置不能在同一个文件里。
+js的配置文件
+build.js
+
+({
+  appDir: "./",
+  baseUrl: "./app",
+  dir: "../re-js",
+  optimize: "none",
+  paths: {
+    jquery: 'empty:'
+  },
+  modules: [{
+    name: "../main"
+  }]
+})
+
+命令行
+cd到js的上级文件夹
+node js/requirejs/r.js -o js/build.js
+
+css的配置文件
+buildCss.js
+({
+  optimizeCss: "standard.keepLines.keepWhitespace.keepComments",
+  cssIn: "../css/main.css",
+  out: "../css/re_main.css",
+})
+
+命令行
+cd到js的上级文件夹
+node js/requirejs/r.js -o js/buildCss.js
