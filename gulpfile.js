@@ -41,13 +41,15 @@ let gulp = require('gulp'),
   //wiredep = require('wiredep').stream,
   //notify = require("gulp-notify"),
   //through = require('through2'),
+  // 引入拦截api的文件
+  //mock = require('./performan/route'),
 
   bs,
   port = 3003,
   reload = browserSync.reload,
 
 
-  app = 'p3',
+  app = 'performan',
   dist = app + '_dist',
 
   appCss = app + '/css/**/*.css',
@@ -83,7 +85,13 @@ gulp.task('serve', function () {
         ssi({
           baseDir: app,
           ext: ".html"
-        })/*,
+        }),
+        // 拦截ajax
+        //function (req, res, next) {
+        //  mock(req, res, next);
+        //  next();
+        //}
+        /*,
          ssi({
          baseDir: app,
          ext: ".shtml"
