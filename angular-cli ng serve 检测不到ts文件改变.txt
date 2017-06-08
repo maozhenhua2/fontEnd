@@ -1,0 +1,6 @@
+I think problem is in WebStorm. Webpack watch doesn't work if the file is not saved directly. Please try turning 'Safe write' option ( Settings | Appearance & Behavior | System Settings | Use "safe write" (save changes to temporary file first)) off. After this change all works fine for me.
+
+
+angular-cli 中 ng serve 后 有时候检测不到.ts文件变化
+webstorm解决方法1：
+关闭 'Safe write' 选项 ( Settings | Appearance & Behavior | System Settings | Use "safe write" (save changes to temporary file first))
