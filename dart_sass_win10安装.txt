@@ -1,7 +1,10 @@
-1. https://www.dartlang.org/tools/sdk#install
 
-安装dart
-添加bin目录到电脑环境变量path
+/*==================================================================*/
+方法1：
+//1. https://www.dartlang.org/tools/sdk#install
+
+//安装dart
+//添加bin目录到电脑环境变量path
 
 2. https://github.com/sass/dart-sass/releases/
 下载dart sass
@@ -45,3 +48,29 @@ Usage: sass <input.scss> [output.css]
     --[no-]trace               Print full Dart stack traces for exceptions.
 -h, --help                     Print this usage information.
     --version                  Print the version of Dart Sass.
+
+/*==================================================================*/
+方法2：
+
+1. 安装chocolatey包管理工具
+https://chocolatey.org/install
+以管理员身份打开cmd命令行工具
+复制以下文字，粘贴到cmd里并回车运行
+@"%SystemRoot%\System32\WindowsPowerShell\v1.0\powershell.exe" -NoProfile -InputFormat None -ExecutionPolicy Bypass -Command "iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))" && SET "PATH=%PATH%;%ALLUSERSPROFILE%\chocolatey\bin"
+2. 等待运行完成
+3. 输入choco 或 choco -?看是否成功
+
+2. 安装dart-sdk
+https://www.dartlang.org/tools/sdk#install-using-chocolatey
+安装dartSass
+
+输入 choco install dart-sdk
+输入 dart 看是否成功
+
+3. 安装sass
+https://pub.dartlang.org/packages/sass
+choco install sass
+
+备注：
+
+版本更新没有方法1快
