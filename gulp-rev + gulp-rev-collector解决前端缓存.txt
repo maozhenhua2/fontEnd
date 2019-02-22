@@ -1,0 +1,70 @@
+gulp-rev + gulp-rev-collector解决前端缓存
+1. 打开node_modules\gulp-rev\index.js
+
+第133行 manifest[originalFile] = revisionedFile;
+修改为: manifest[originalFile] = originalFile + '?v=' + file.revHash;
+ 
+
+2.打开node_modules\rev-path\index.js
+
+第10行 return filename + '-' + hash + ext;
+修改为: return filename + ext;
+ 
+
+3.打开node_modules\gulp-rev-collector\index.js
+
+第31行  if ( path.basename(json[key]).replace(new RegExp( opts.revSuffix ), '' ) !== path.basename(key) ) 
+修改为: if ( path.basename(json[key]).split('?')[0] !== path.basename(key) ) 
+ 
+
+gulpfile.js
+
+复制代码
+var gulp = require('gulp');
+var runSequence = require('run-sequence');
+var rev = require('gulp-rev');
+var revCollector = require('gulp-rev-collector');
+
+//定义css、js源文件路径
+var cssSrc = 'src/css/*.css';
+var jsSrc = 'src/js/*.js';
+
+
+//CSS生成文件hash编码并生成 rev-manifest.json文件名对照映射
+gulp.task('revCss', function () {
+    return gulp.src(cssSrc)
+        .pipe(rev())
+        .pipe(rev.manifest())
+        .pipe(gulp.dest('rev/css'));
+});
+
+
+//js生成文件hash编码并生成 rev-manifest.json文件名对照映射
+gulp.task('revJs', function () {
+    return gulp.src(jsSrc)
+        .pipe(rev())
+        .pipe(rev.manifest())
+        .pipe(gulp.dest('rev/js'));
+});
+
+
+//Html替换css、js文件版本
+gulp.task('revHtml', function () {
+    return gulp.src(['rev/**/*.json', 'src/*.html'])
+        .pipe(revCollector())
+        .pipe(gulp.dest('dist'));
+});
+
+
+//开发构建
+gulp.task('dev', function (done) {
+    condition = false;
+    runSequence(
+        ['revCss'],
+        ['revJs'],
+        ['revHtml'],
+        done);
+});
+
+
+gulp.task('default', ['dev']);
